@@ -16,7 +16,27 @@ import {
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
-
+      <header className="bg-red-500 border-b">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <img
+              src="/img/kq-logo.png"
+              alt=""
+              className="w-[200px] object-contain"
+            />
+            {/* <Plane className="h-6 w-6 text-red-600" />
+            <span className="font-bold text-xl">Kenya Airways Security</span> */}
+          </div>
+          <div className="flex items-center space-x-4">
+            <span className="text-sm text-white">Welcome, Security Agent</span>
+            <Link href="/login">
+              <Button variant="outline" size="sm">
+                Logout
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </header>
 
       <main className="flex-1 container mx-auto px-4 py-8">
         <h1 className="text-2xl font-bold mb-6">
