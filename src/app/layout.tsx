@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +29,29 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="bg-red-500 border-b">
+          <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <img
+                src="/img/kq-logo.png"
+                alt=""
+                className="w-[200px] object-contain"
+              />
+              {/* <Plane className="h-6 w-6 text-red-600" />
+            <span className="font-bold text-xl">Kenya Airways Security</span> */}
+            </div>
+            <div className="flex items-center space-x-4">
+              <span className="text-sm text-white">
+                Welcome, Security Agent
+              </span>
+              <Link href="/login">
+                <Button variant="outline" size="sm">
+                  Logout
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </header>
         {children}
       </body>
     </html>
