@@ -63,7 +63,14 @@ export default function SearchCheckPage() {
                   <div className="space-y-2">
                     <Label htmlFor="checkTime">Check Time</Label>
                     <div className="relative">
-                      <Input id="checkTime" value={currentTime} readOnly />
+                      <Input
+                        id="checkTime"
+                        value={currentTime}
+                        readOnly
+                        onChange={(e) => {
+                          setCurrentTime(e.target.value);
+                        }}
+                      />
                       <Clock className="absolute right-3 top-2.5 h-4 w-4 text-gray-400" />
                     </div>
                   </div>
