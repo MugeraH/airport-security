@@ -1,102 +1,238 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Plane,
+  Shield,
+  Users,
+  ClipboardCheck,
+  FileText,
+  AlertTriangle,
+  ArrowUpRight,
+  Clock,
+  UserCheck,
+} from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex min-h-screen flex-col">
+      <header className="bg-white border-b">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <Plane className="h-6 w-6 text-red-600" />
+            <span className="font-bold text-xl">Kenya Airways Security</span>
+          </div>
+          <div className="flex items-center space-x-4">
+            <span className="text-sm text-gray-600">
+              Welcome, Security Agent
+            </span>
+            <Link href="/login">
+              <Button variant="outline" size="sm">
+                Logout
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <main className="flex-1 container mx-auto px-4 py-8">
+        <h1 className="text-2xl font-bold mb-6">
+          Electronic Access Control & Flight Coverage
+        </h1>
+
+        {/* Statistics Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <Card className="bg-white">
+            <CardContent className="p-6">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-medium text-gray-500">
+                    Active Flights
+                  </p>
+                  <h3 className="text-3xl font-bold mt-1">24</h3>
+                  <p className="text-xs text-green-600 mt-1 flex items-center">
+                    <ArrowUpRight className="h-3 w-3 mr-1" />
+                    <span>+3 from yesterday</span>
+                  </p>
+                </div>
+                <div className="h-12 w-12 bg-red-50 rounded-full flex items-center justify-center">
+                  <Plane className="h-6 w-6 text-red-600" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white">
+            <CardContent className="p-6">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-medium text-gray-500">
+                    Security Checks
+                  </p>
+                  <h3 className="text-3xl font-bold mt-1">156</h3>
+                  <p className="text-xs text-green-600 mt-1 flex items-center">
+                    <ArrowUpRight className="h-3 w-3 mr-1" />
+                    <span>+12 today</span>
+                  </p>
+                </div>
+                <div className="h-12 w-12 bg-green-50 rounded-full flex items-center justify-center">
+                  <ClipboardCheck className="h-6 w-6 text-green-600" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white">
+            <CardContent className="p-6">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-medium text-gray-500">
+                    Pending Incidents
+                  </p>
+                  <h3 className="text-3xl font-bold mt-1">3</h3>
+                  <p className="text-xs text-amber-600 mt-1 flex items-center">
+                    <Clock className="h-3 w-3 mr-1" />
+                    <span>Requires attention</span>
+                  </p>
+                </div>
+                <div className="h-12 w-12 bg-amber-50 rounded-full flex items-center justify-center">
+                  <AlertTriangle className="h-6 w-6 text-amber-600" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-white">
+            <CardContent className="p-6">
+              <div className="flex justify-between items-center">
+                <div>
+                  <p className="text-sm font-medium text-gray-500">
+                    Active Personnel
+                  </p>
+                  <h3 className="text-3xl font-bold mt-1">42</h3>
+                  <p className="text-xs text-blue-600 mt-1 flex items-center">
+                    <UserCheck className="h-3 w-3 mr-1" />
+                    <span>5 on duty now</span>
+                  </p>
+                </div>
+                <div className="h-12 w-12 bg-blue-50 rounded-full flex items-center justify-center">
+                  <Users className="h-6 w-6 text-blue-600" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex flex-col items-center text-center">
+                <Shield className="h-12 w-12 text-red-600 mb-4" />
+                <h2 className="text-xl font-semibold mb-2">
+                  Aircraft Access Control
+                </h2>
+                <p className="text-gray-600 mb-4">
+                  Verify airside passes, staff details and control access to
+                  aircraft
+                </p>
+                <Link href="/access-control">
+                  <Button className="w-full">Access Control</Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex flex-col items-center text-center">
+                <Plane className="h-12 w-12 text-red-600 mb-4" />
+                <h2 className="text-xl font-semibold mb-2">Flight Coverage</h2>
+                <p className="text-gray-600 mb-4">
+                  Record flight details and validate airside passes for ground
+                  personnel
+                </p>
+                <Link href="/flight-coverage">
+                  <Button className="w-full">Flight Coverage</Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex flex-col items-center text-center">
+                <ClipboardCheck className="h-12 w-12 text-red-600 mb-4" />
+                <h2 className="text-xl font-semibold mb-2">
+                  Search/Check Form
+                </h2>
+                <p className="text-gray-600 mb-4">
+                  Log real-time security checks with timestamps and
+                  area-specific options
+                </p>
+                <Link href="/search-check">
+                  <Button className="w-full">Search/Check Form</Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex flex-col items-center text-center">
+                <FileText className="h-12 w-12 text-red-600 mb-4" />
+                <h2 className="text-xl font-semibold mb-2">
+                  General Declaration
+                </h2>
+                <p className="text-gray-600 mb-4">
+                  Confirm and digitally tick pilot, crew, engineer, and security
+                  personnel details
+                </p>
+                <Link href="/general-declaration">
+                  <Button className="w-full">General Declaration</Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex flex-col items-center text-center">
+                <AlertTriangle className="h-12 w-12 text-red-600 mb-4" />
+                <h2 className="text-xl font-semibold mb-2">
+                  Incident Reporting
+                </h2>
+                <p className="text-gray-600 mb-4">
+                  Add comments/remarks for unusual occurrences during operations
+                </p>
+                <Link href="/incident-reporting">
+                  <Button className="w-full">Incident Reporting</Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-md transition-shadow">
+            <CardContent className="p-6">
+              <div className="flex flex-col items-center text-center">
+                <Users className="h-12 w-12 text-red-600 mb-4" />
+                <h2 className="text-xl font-semibold mb-2">Staff Management</h2>
+                <p className="text-gray-600 mb-4">
+                  Manage security personnel and their access permissions
+                </p>
+                <Link href="/staff-management">
+                  <Button className="w-full">Staff Management</Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      <footer className="bg-gray-100 border-t py-4">
+        <div className="container mx-auto px-4 text-center text-sm text-gray-600">
+          &copy; {new Date().getFullYear()} Kenya Airways Security System. All
+          rights reserved.
+        </div>
       </footer>
     </div>
   );
